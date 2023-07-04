@@ -1,0 +1,178 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>exercise</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="#">
+    </head>
+    <body>
+        <script>
+            function check(){
+                var submit_button = document.getElementById('submit').value;
+                var usrname = document.getElementById('username').value;
+                var usrpassword = document.getElementById('password').value;
+
+                if(usrpassword == ''  || usrname == '' || usrpassword.length < 7){
+                    document.getElementById('message').innerHTML = 'Please enter the valid username and password';
+                    return false;
+                } else{
+                    document.getElementById('message').innerHTML = 'Sucessful';
+                    return true;
+                }
+            }
+
+            // function reload_page(){
+            //     var totalpage = window.history.length;
+            //     console.log(totalpage);
+            // }
+
+            console.log('size of screen ' + window.screen.width + ' ' + window.screen.height);
+            if(window.screen.width == 1536){
+                console.log('true');
+            }else{
+                console.log('false');
+            }
+            console.log(Number.prototype);
+            age = new Number();
+            console.log(age);
+            console.log(age.valueOf());
+            age.name = "New browser";
+
+            const person = {
+                name: {
+                    first: 'sam',
+                    last: 'david'
+                },
+                age: 32,
+                see_age: function(){
+                    console.log(age);
+                },
+                bio(){
+                    console.log(name);
+                }
+            };
+            function logProperty(propertyName){
+                console.log(person[propertyName]);
+            }
+            logProperty("name");
+            console.log(person["age"]);
+
+            function Studen(id){
+                this.id = id;
+            }
+            Studen.prototype = person;
+            var newStr = new Studen(10);
+            console.log(Object.getPrototypeOf(newStr));
+
+
+            // function object here
+            function Person(_name, _age){
+                this.name = _name;
+                this._age = _age;
+            }
+            console.log(Person.prototype);
+            
+            Person.prototype.showAge = function (){
+                console.log(this.age);
+            }
+            console.log(Person);
+
+            var person1 = new Person('Adam', 19);
+            console.log(person1);
+            if(Object.prototype.prototype == null && Object.prototype.prototype == undefined){
+                console.log(typeof Object.prototype.prototype);
+            }
+            console.log(Number.__proto__);
+
+            if(Number.__proto__ == Object.getPrototypeOf(Number)){
+                console.log('true');
+                console.log(typeof Number.__proto__ + ' ' + typeof Object.getPrototypeOf(Number));
+                console.log(Number.__proto__);
+                console.log(Object.getPrototypeOf(Number));
+            }
+
+            const test_obj = new Date();
+            let myObj = test_obj;
+
+            console.log('Prototype Chain');
+            do{
+                myObj = Object.getPrototypeOf(myObj);
+                console.log(myObj);
+            }while(myObj)
+
+            test_obj.getDate = function(){
+                console.log('get date');
+            }
+            test_obj.getDate();
+
+            class Example {
+                somePublicMethod() {
+                    this.#somePrivateMethod();
+                }
+
+                #somePrivateMethod() {
+                    console.log("You called me?");
+                }
+            }
+
+            const myExample = new Example();
+
+            myExample.somePublicMethod(); // 'You called me?'
+
+            // myExample.#somePrivateMethod(); // SyntaxError
+            console.log(Object.keys(fetch));
+            console.log(Object.keys(Request));
+            console.log(Object.keys(Number));
+
+            console.log(Object.getOwnPropertyNames(Document));
+            
+            // async function logJSONData() {
+            //     const response = await fetch("C:\Users\Admin\Code\Frontend\ex\MNDlearn\learning-area\javascript\oojs\json\superheroes.json");
+            //     const jsonData = await response.json();
+            //     console.log(jsonData);
+            // }
+            const myHeader = new Headers();
+            myHeader.append('Content-Type', "image/ipeg");
+            console.log(myHeader.get("Content-Type"));
+
+            let myObj_str = { name: "Chris", age: 38 };
+            console.log(myObj_str);
+            let myString = JSON.stringify(myObj_str);
+            console.log(myString);
+
+            // fetch API
+            const fetchPromise = fetch(
+                 "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"
+            );
+            console.log(fetchPromise);
+
+            fetchPromise.then((response)=>{
+                console.log(`Recieved Response ${response.status}`);
+            });
+            console.log('Start Request...'); // we can see that fetch() is asynchronous when start first
+            
+            // fetchPromise
+            //     .then((response)=>response.json())
+            //     .then((data)=>{console.log(data[0].name);
+            // });
+
+            console.log('inner Height: ' + window.innerHeight + ' inner Width: ' + window.innerWidth );
+        </script>
+        <!-- ----------------------html------------------------- -->
+        <form id="myform">
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username"/><br>
+            <label for="password">password: </label>
+            <input type="password" id="password" name="password"/><br>
+            <div id="message" style="color: red"></div>
+            <label for="submit"></label>
+            <input type="submit" value="Submit button" id="submit" onclick="return check()"/>
+        </form>
+        <!-- <button id="location_test" onclick="reload_page()">Click this to reload page</button> -->
+        
+
+    </body>
+    </html>

@@ -1,0 +1,21 @@
+table, tr, th .table{
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+
+.input{
+    background-color: aqua;
+    padding: 3px;
+    align-items: center;
+}
+
+.header{
+    height: 46px;
+    padding: 50px 0;
+    background-color: aquamarine;
+    /* border-radius: 2px; */
+}
+
+.menu_bar{
+    height: 50px;
+}

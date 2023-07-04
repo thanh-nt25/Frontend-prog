@@ -1,0 +1,70 @@
+
+<!DOCTYPE <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title> Basic Website </title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/style.css">
+		<script type="text/javascript" src="js/basic.js" ></script>
+		<script>
+			var button_s = document.getElementById('show-btn');
+			button_s.onclick = function(){
+				alert('may vua click vao nut nay');
+			}
+		</script>
+		<script>
+			function checkvalid(){
+				var username = document.getElementById('username').value;
+				var password = document.getElementById('password').value;
+
+				if(username == ""){
+					alert('You did not enter the username');
+					return false;
+				}
+			}
+			let node = document.getElementById('test_inner');
+			node.innerHTML = "new element";
+			document.getElementById('output') = node.innerHTML;
+
+		</script>
+
+	</head>
+	<body>
+		<div>
+			<p id="test_inner">Document</p>
+			<p id="output">New document</p>
+		</div>
+		<button onclick="getLocation()">Click on this</button>
+		<p id="geo"></p>
+
+		<form onsubmit="test_submit()">
+			<label form="username">Username: </label>
+			<input type="text" id="username" name="username"/> <br>
+			<label form="password">Password: </label>
+			<input type="text" id="password" name="password"/> <br>
+			<input type="submit" value="Sign in" name="submit" onclick="return checkvalid()" />
+			<input type="text" value="name of button" target="_blank" />
+		</form>
+
+		
+		<h3>Envent test 1</h3>
+		<label for="event_test">Check length:</label>
+		<input type="text" id="event_test"/><br>
+		<input type="button" value="click this to test event" id="even_test"/>
+
+		<!-- event test -->
+		<script>
+			var obj = document.getElementById('even_test');
+			obj.addEventListener('click', function(){
+				alert("you just test successful this feature");
+			});
+
+		</script>
+
+
+
+	</body>
+</html>
